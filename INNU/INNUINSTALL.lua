@@ -12,8 +12,8 @@ end
 term.clear();
 term.setCursorPos(1,1)
 
-if fs.exists("INNU") then fs.delete("INNU/") end
-fs.makeDir("INNU")
+if fs.exists("/INNU") then fs.delete("/INNU/") end
+fs.makeDir("/INNU")
 
 print("Installing INNUExtension. . .\n")
 
