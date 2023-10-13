@@ -5,7 +5,7 @@ function Install()
         "https://github.com/joshgreatuk/InnoCC/raw/main/INNU/INNUBEEP.lua" }
     if fs.exists("INNU") then fs.delete("INNU/") end
     fs.makeDir("INNU")
-    for url in fileURLs do
+    for url in ipairs(fileURLs) do
         shell.run("wget", url, "INNU/")
     end
 end
