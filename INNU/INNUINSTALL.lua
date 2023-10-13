@@ -1,12 +1,5 @@
 --[V1.0] INNUINSTALL - An installer for INNU
 
-term.clear();
-term.setCursorPos(0,0)
-
-print("Installing INNU. . .\n")
-Install()
-print("\nINNU installed <3")
-
 function Install()
     fileURLs = { 
         "" }
@@ -19,3 +12,10 @@ function Install()
         end
     end
 end
+
+term.clear();
+term.setCursorPos(0,0)
+
+print("Installing INNU. . .\n")
+Install()
+print("\nINNU installed <3")
