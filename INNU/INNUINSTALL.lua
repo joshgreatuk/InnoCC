@@ -5,7 +5,7 @@ function Install()
         "https://github.com/joshgreatuk/InnoCC/raw/main/INNU/INNUBEEP.lua" }
 
     for i=0, fileURLs.len() do
-        if !fs.isDir("INNU") then fs.makeDir("INNU") end
+        if not fs.isDir("INNU") then fs.makeDir("INNU") end
         
         for existing in fs.list("INNU/") do
             fs.delete(existing)
