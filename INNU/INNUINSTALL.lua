@@ -5,7 +5,7 @@ function Install()
         "https://github.com/joshgreatuk/InnoCC/raw/main/INNU/INNUBEEP.lua" }
     for i, url in ipairs(fileURLs) do
         fileNameTable = url:Split("/")
-        fileName = fileNameTable[fileNameTable.len]
+        fileName = fileNameTable[#fileNameTable]
         filePath = "/INNU/"..fileName
         shell.run("wget", url, filePath)
     end
