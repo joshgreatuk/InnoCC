@@ -1,7 +1,6 @@
 --[V1.0] INNUINSTALL - An installer for INNU
 
 term.clear();
-term.setTextColour(colors.white)
 term.setCursorPos(0,0)
 
 print("Installing INNU. . .\n")
