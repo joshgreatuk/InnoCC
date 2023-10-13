@@ -18,8 +18,7 @@ fs.makeDir("INNU")
 print("Installing INNUExtension. . .\n")
 
 shell.run("wget", "https://github.com/joshgreatuk/InnoCC/raw/main/INNU/INNUExtension.lua", "INNU/INNUExtension.lua")
-package.loadlib("INNUExtension","INNU/INNUExtension" )
-require("INNUExtension")
+require("INNU/INNUExtension.lua")
 
 print("Installing INNU. . .\n")
 Install()
