@@ -7,6 +7,10 @@ function Install()
     for i=0, fileURLs.len() do
         if !fs.isDir("INNU") then fs.makeDir("INNU") end
         
+        for existing in fs.list("INNU/") do
+            fs.delete(existing)
+        end
+
         for url in fileURLs do
             shell.run("wget", url, "INNU/")
         end
