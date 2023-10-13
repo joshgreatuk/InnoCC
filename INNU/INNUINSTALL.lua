@@ -6,7 +6,8 @@ function Install()
     for i, url in ipairs(fileURLs) do
         fileNameTable = url:Split("/")
         fileName = fileNameTable[fileNameTable.len]
-        shell.run("wget", url, "/INNU/" .. fileName)
+        filePath = "/INNU/"..fileName
+        shell.run("wget", url, filePath)
     end
 end
 
