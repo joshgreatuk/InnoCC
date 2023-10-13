@@ -1,2 +1,2 @@
--- INNUBEEP V1.0 - Beep codes
+--[V1.0] INNUBEEP - Beep codes
 

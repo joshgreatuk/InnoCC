@@ -1,2 +1,2 @@
--- TINNOQ V1.0 - Turtle quarry program
+--[V1.0] TINNOQ - Turtle quarry program
 
