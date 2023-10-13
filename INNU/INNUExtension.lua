@@ -6,11 +6,11 @@ function string:Split(splitPattern)
     local theSplitStart, theSplitEnd = string.find(self, splitPattern, theStart)
     
     while (theSplitStart) do
-        outResults:insert(outResults, string.sub(self, theStart, theSplitStart-1))
+        table.insert(outResults, string.sub(self, theStart, theSplitStart-1))
         theStart = theSplitEnd + 1
         theSplitStart, theSplitEnd = string.find(self, splitPattern, theStart)
     end
 
-    outResults:insert(outResults, string.sub(self, theStart))
+    table.insert(outResults, string.sub(self, theStart))
     return outResults;
 end
