@@ -11,7 +11,7 @@ function Install()
 end
 
 term.clear();
-term.setCursorPos(0,0)
+term.setCursorPos(1,1)
 
 print("Installing INNU. . .\n")
 Install()
