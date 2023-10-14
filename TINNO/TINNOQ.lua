@@ -70,7 +70,7 @@ function Miner:Refuel()
     while (turtle.getFuelLevel() < 1) do
         self:TryRefuel()
         if (turtle.getFuelLevel() > 1) then break end
-        beeper:BeepCode("31", 1.0)
+        beeper:BeepCode("31", 1.0, 3.0)
         sleep(5)
     end
 end

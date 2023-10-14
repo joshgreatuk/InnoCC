@@ -7,9 +7,10 @@ function Beeper:New()
     return self
 end
 
-function Beeper:Beep(pitch)
+function Beeper:Beep(pitch, volume)
     if self.speaker == nil then return end
-    self.speaker.playNote("pling", 1.0, pitch)
+    if volume == nil then volume = 1.0 end
+    self.speaker.playNote("pling", volume, pitch)
 end
 
 function Beeper:BeepCode(pattern, pitch)
