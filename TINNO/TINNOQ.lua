@@ -10,6 +10,7 @@ end
 function Miner:MinerLoop()
     turtle.digDown()
     turtle.down()
+    print("Depth: "..self.currentDepth.."/"..self.targetDepth)
 
     if (self.targetWidth < 0) then self.reverse = true end
 
@@ -34,6 +35,7 @@ function Miner:MinerLoop()
 
                 self.currentWidth = 1
                 self.currentDepth = self.currentDepth + 1
+                print("Depth: "..self.currentDepth.."/"..self.targetDepth)
             else
                 --Go side
                 self:Turn()
@@ -92,6 +94,8 @@ if #args < 3 or #args > 3 then SendHelp() return end
 if args[1] < 1 then print("Length must be more than 1") return end
 if args[2] == 0 then print("Width cant be 0") return end
 if args[3] < 1 then print("Depth must be more than 1") return end
+
+print("Starting TINNOQ")
 
 beeper = Beeper:New()
 
