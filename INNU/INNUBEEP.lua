@@ -1,4 +1,4 @@
---[V1.0] INNUBEEP - Beep codes
+--[V1.1] INNUBEEP - Beep codes
 
 Beeper = { speaker=nil }
 

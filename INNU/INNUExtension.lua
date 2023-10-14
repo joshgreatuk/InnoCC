@@ -1,4 +1,4 @@
---[V1.0] INNUExtension - Generic extensions
+--[V1.1] INNUExtension - Generic extensions
 
 function string:Split(splitPattern)
     local outResults = {}
