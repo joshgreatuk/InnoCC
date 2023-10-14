@@ -22,6 +22,6 @@ print("Installing INNUExtension. . .\n")
 shell.run("wget", "https://github.com/joshgreatuk/InnoCC/raw/main/INNU/INNUExtension.lua", "/INNU/INNUExtension.lua")
 require("/INNU/INNUExtension")
 
-print("Installing INNU. . .\n")
+print("\nInstalling INNU. . .\n")
 Install()
 print("\nINNU installed <3")

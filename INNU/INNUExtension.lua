@@ -14,3 +14,11 @@ function string:Split(splitPattern)
     table.insert(outResults, string.sub(self, theStart))
     return outResults;
 end
+
+function string:GetChars()
+    local result = {}
+    for i=0, #self do 
+        table.insert(result, self:sub(i, i))
+    end
+    return result
+end
