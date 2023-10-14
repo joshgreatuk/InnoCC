@@ -47,7 +47,8 @@ function Miner:MinerLoop()
             end
 
             self.currentLength = 1
-            self.reverse = not self.reverse
+            if self.reverse == true then self.reverse = false
+            else self.reverse = true end
         else
             --Go forward
             turtle.dig()
