@@ -79,8 +79,8 @@ function Miner:TryRefuel()
     for i=1, 16 do 
         turtle.select(i)
         item = turtle.getItemDetail(i)
-        if not item == nil and turtle.getItemDetail(i).name == "minecraft:coal" then
-            turtle.Refuel(turtle.getItemCount(i))
+        if item ~= nil and turtle.getItemDetail(i).name == "minecraft:coal" then
+            turtle.refuel(turtle.getItemCount(i))
         end
     end
 end
