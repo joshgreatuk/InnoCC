@@ -86,9 +86,9 @@ end
 
 local args = {...}
 
-if not require("/INNU/INNUExtension") 
-or not require("/INNU/INNUBeep")
-then print("Sorry, INNUExtension must be installed to use this program") return end
+if not require("/INNU/Extension") 
+or not require("/INNU/Beep")
+then print("Sorry, INNU must be installed to use this program") return end
 if #args < 3 or #args > 3 then SendHelp() return end
 
 if args[1] < 1 then print("Length must be more than 1") return end

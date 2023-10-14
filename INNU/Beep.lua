@@ -4,6 +4,7 @@ Beeper = { speaker=nil }
 
 function Beeper:New()
     self.speaker = peripheral.find("speaker")
+    return self
 end
 
 function Beeper:Beep(pitch)
@@ -12,7 +13,7 @@ function Beeper:Beep(pitch)
 end
 
 function Beeper:BeepCode(pattern, pitch)
-    require("/INNU/INNUExtension")
+    require("/INNU/Extension")
     patternChars = string:GetChars(pattern)
     for i=0, #patternChars do
         for j=0, patternChars[i] do

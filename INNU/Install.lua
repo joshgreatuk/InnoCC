@@ -2,7 +2,7 @@
 
 function Install()
     fileURLs = {
-        "https://github.com/joshgreatuk/InnoCC/raw/main/INNU/INNUBEEP.lua" }
+        "https://github.com/joshgreatuk/InnoCC/raw/main/INNU/Beep.lua" }
     for i, url in ipairs(fileURLs) do
         fileNameTable = url:Split("/")
         fileName = fileNameTable[#fileNameTable]
@@ -19,7 +19,7 @@ fs.makeDir("/INNU")
 
 print("Installing INNUExtension. . .\n")
 
-shell.run("wget", "https://github.com/joshgreatuk/InnoCC/raw/main/INNU/INNUExtension.lua", "/INNU/INNUExtension.lua")
+shell.run("wget", "https://github.com/joshgreatuk/InnoCC/raw/main/INNU/Extension.lua", "/INNU/Extension.lua")
 require("/INNU/INNUExtension")
 
 print("\nInstalling INNU. . .\n")
