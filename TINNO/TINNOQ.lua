@@ -62,7 +62,7 @@ function Miner:Turn()
     if (self.reverse) then
         turtle.turnLeft()        
     else
-        tu.turnRight()
+        turtle.turnRight()
     end
 end
 
