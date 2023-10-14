@@ -2,7 +2,8 @@
 
 function Install()
     fileURLs = {
-        "https://github.com/joshgreatuk/InnoCC/raw/main/INNU/Beep.lua" }
+        "https://github.com/joshgreatuk/InnoCC/raw/main/INNU/Beep.lua",
+        "https://github.com/joshgreatuk/InnoCC/raw/main/INNU/Arguments.lua" }
     for i, url in ipairs(fileURLs) do
         fileNameTable = url:Split("/")
         fileName = fileNameTable[#fileNameTable]
