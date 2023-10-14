@@ -98,7 +98,8 @@ if tonumber(args[3]) < 1 then print("Depth must be more than 1") return end
 
 print("Starting TINNOQ")
 
-beeper = Beeper:New()
+beeper = Beeper
+beeper:New()
 
 miner = Miner
 miner.targetLength = tonumber(args[1])
