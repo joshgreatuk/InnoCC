@@ -50,7 +50,12 @@ function Miner:MinerLoop()
             self.currentLength = 1
         else
             --Go forward
-            turtle.dig()
+            if not turtle.dig() then
+                while true do
+                    print("DIG ERROR, Turtle could be full, press any button to continue")
+                    read()
+                end
+            end
             turtle.forward()
 
             self.currentLength = self.currentLength + 1
