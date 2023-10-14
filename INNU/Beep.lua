@@ -15,8 +15,8 @@ end
 function Beeper:BeepCode(pattern, pitch)
     require("/INNU/Extension")
     patternChars = pattern:GetChars()
-    for i=0, #patternChars do
-        for j=0, tonumber(patternChars[i]) do
+    for i=1, #patternChars do
+        for j=1, tonumber(patternChars[i]) do
             self:Beep(pitch)
             sleep(0.25)
         end
