@@ -86,23 +86,23 @@ end
 
 local args = {...}
 
-if not require("/INNU/Extension") 
-or not require("/INNU/Beep")
+if not assert(require("/INNU/Extension")) 
+or not assert(require("/INNU/Beep"))
 then print("Sorry, INNU must be installed to use this program") return end
 if #args < 3 or #args > 3 then SendHelp() return end
 
-if args[1] < 1 then print("Length must be more than 1") return end
-if args[2] == 0 then print("Width cant be 0") return end
-if args[3] < 1 then print("Depth must be more than 1") return end
+if tonumber(args[1]) < 1 then print("Length must be more than 1") return end
+if tonumber(args[2]) == 0 then print("Width cant be 0") return end
+if tonumber(args[3]) < 1 then print("Depth must be more than 1") return end
 
 print("Starting TINNOQ")
 
 beeper = Beeper:New()
 
 miner = Miner
-miner.targetLength = args[1]
-miner.targetWidth = args[2]
-miner.targetDepth = args[3]
+miner.targetLength = tonumber(args[1])
+miner.targetWidth = tonumber(args[2])
+miner.targetDepth = tonumber(args[3])
 
 miner:MinerLoop()
 print("Done!")
