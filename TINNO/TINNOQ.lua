@@ -12,7 +12,7 @@ function Miner:MinerLoop()
     turtle.down()
     print("Depth: "..self.currentDepth.."/"..self.targetDepth)
 
-    if (self.targetWidth < 0) then self.reverse = true end
+    if (self.targetWidth < 0) then self.reverse = true self.targetWidth = self.targetWidth * -1 end
 
     while true do
         if (turtle.getFuelLevel() < 1) then
