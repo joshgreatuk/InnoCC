@@ -18,8 +18,8 @@ function Beeper:BeepCode(pattern, pitch)
     for i=1, #patternChars do
         for j=1, tonumber(patternChars[i]) do
             self:Beep(pitch)
-            sleep(0.25)
+            sleep(0.2)
         end
-        sleep(0.5)
+        sleep(0.4)
     end
 end
