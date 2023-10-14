@@ -18,7 +18,7 @@ end
 function string:GetChars()
     local result = {}
     for i=0, #self do 
-        table.insert(result, 1, string.sub(self, i, i))
+        table.insert(result, self:sub(i, i))
     end
     return result
 end
