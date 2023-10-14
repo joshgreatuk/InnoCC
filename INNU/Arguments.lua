@@ -6,12 +6,12 @@ function Argument:ParseArguments(toParse)
     require("/INNU/Extension")
     args = {}
     local currentArg = Argument
-    for i=1, #toParseSplit do
+    for i=1, #toParse do
         if currentArg.flag == "" then
-            if toParseSplit[i]:sub(1, 1) ~= "-" then return nil end
-            currentArg.flag = toParseSplit[i]
+            if toParse[i]:sub(1, 1) ~= "-" then return nil end
+            currentArg.flag = toParse[i]
         elseif currentArg.value == "" then
-            currentArg.value = toParseSplit[i]
+            currentArg.value = toParse[i]
         else
             table.insert(args, currentArg)
             currentArg = Argument
