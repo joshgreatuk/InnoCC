@@ -50,12 +50,7 @@ function Miner:MinerLoop()
             self.currentLength = 1
         else
             --Go forward
-            if not turtle.dig() then
-                while true do
-                    print("DIG ERROR, Turtle could be full, press any button to continue")
-                    read()
-                end
-            end
+            turtle.dig() 
             turtle.forward()
 
             self.currentLength = self.currentLength + 1
@@ -83,7 +78,8 @@ end
 function Miner:TryRefuel()
     for i=1, 16 do 
         turtle.select(i)
-        if turtle.getItemDetail(i).name == "minecraft:coal" then
+        item = turtle.getItemDetail(i)
+        if not item == nil and turtle.getItemDetail(i).name == "minecraft:coal" then
             turtle.Refuel(turtle.getItemCount(i))
         end
     end
