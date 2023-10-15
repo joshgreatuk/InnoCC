@@ -1,10 +1,12 @@
 --[V1.0] INNS updater
 
 fileNames = {
-
+    "Accounts",
+    "startup"
 }
 sources = {
-    
+    "https://raw.githubusercontent.com/joshgreatuk/InnoCC/main/INNS/Accounts.lua",
+    "https://raw.githubusercontent.com/joshgreatuk/InnoCC/main/INNS/startup.lua"
 }
 
 print("Updating INNS Package\n")
