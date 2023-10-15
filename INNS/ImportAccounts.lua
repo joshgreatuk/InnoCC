@@ -14,7 +14,7 @@ if not drive.isDiskPresent() then
     end
 end 
 
-local path = "/"..drive.getMountPath(drive).."/"
+local path = "/"..drive.getMountPath(drive).."/INNSAccounts/"
 if not fs.exists(path) then print("No accounts to import") return end
 
 local accounts = fs.list(path)
