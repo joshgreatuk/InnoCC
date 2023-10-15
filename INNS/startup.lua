@@ -12,6 +12,8 @@ local loggedIn = false
 local redstoneSide = "back"
 local doorOpenTime = 5
 
+local pullEvent = os.pullEvent
+
 --Helpers
 local function GetPureScreenCentre()
     local x, y = term.getSize()
@@ -65,6 +67,7 @@ local function CardLoop()
 end
 
 local function OSLoop()
+    os.pullEvent = os.pullEventRaw
     term.clear()
     term.setCursorPos(1,1)
     if GetAccountList() == nil then
@@ -117,6 +120,7 @@ local function OSLoop()
                 WaitForInputOrSecs(3)
                 term.clear()
                 term.setCursorPos(1,1)
+                os.pullEvent = pullEvent
                 shell.run("shell")
             end
         end
@@ -124,6 +128,4 @@ local function OSLoop()
 end
 
 require("/Accounts")
-
-os.pullEvent = os.pullEventRaw
 parallel.waitForAll(CardLoop, OSLoop) 
