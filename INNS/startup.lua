@@ -3,6 +3,8 @@
 local requiredDoorLevel = 1
 local requiredAccessLevel = 3
 
+local doorControl = true
+
 local loginFieldOffset = 10
 
 local loggedIn = false
@@ -62,6 +64,7 @@ local function CardLoop()
 end
 
 local function OSLoop()
+    if not doorControl then return end
     term.clear()
     term.setCursorPos(1,1)
     if GetAccountList() == nil then
