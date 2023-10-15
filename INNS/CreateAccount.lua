@@ -2,7 +2,7 @@
 
 require("/Accounts")
 
-print("INNS Account Creator V1.0")
+print("INNS Account Creator V1.0 - InnoCorp Software")
 print("Username: ")
 username = read()
 print("Password: ")

@@ -11,13 +11,17 @@ fileNames = {
     "Accounts.lua",
     "startup.lua",
     "CreateAccount.lua",
-    "DeleteAccount.lua"
+    "DeleteAccount.lua",
+    "WriteCard.lua",
+    "ClearCard.lua"
 }
 sources = {
     "https://raw.githubusercontent.com/joshgreatuk/InnoCC/main/INNS/Accounts.lua",
     "https://raw.githubusercontent.com/joshgreatuk/InnoCC/main/INNS/startup.lua",
     "https://raw.githubusercontent.com/joshgreatuk/InnoCC/main/INNS/CreateAccount.lua",
-    "https://raw.githubusercontent.com/joshgreatuk/InnoCC/main/INNS/DeleteAccount.lua"
+    "https://raw.githubusercontent.com/joshgreatuk/InnoCC/main/INNS/DeleteAccount.lua",
+    "https://raw.githubusercontent.com/joshgreatuk/InnoCC/main/INNS/WriteCard.lua",
+    "https://raw.githubusercontent.com/joshgreatuk/InnoCC/main/INNS/ClearCard.lua"
 }
 
 print("Updating INNS Package\n")

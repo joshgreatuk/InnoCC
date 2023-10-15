@@ -2,7 +2,7 @@
 
 require("/Accounts")
 
-print("INNS Account Deleter V1.0")
+print("INNS Account Deleter V1.0 - InnoCorp Software")
 local accounts = GetAccountList()
 if accounts == nil then print("No accounts found") return end
 for i=1, #accounts do

@@ -11,9 +11,9 @@ function Account:New(username, password, securityLevel)
     self.guid = math.random(10000000, 99999999)
 
     if not fs.exists("INNSAccounts/") then fs.makeDir("INNSAccounts/") end
-    path = "INNSAccounts/"..username..".user"
+    local path = "INNSAccounts/"..username..".user"
 
-    file = fs.open(path, "w")
+    local file = fs.open(path, "w")
     file.writeLine(username)
     file.writeLine(password)
     file.writeLine(securityLevel)
@@ -31,8 +31,8 @@ function Account:Delete()
 end
 
 function ParseFile(path)
-    file = path.open(path, "r")
-    account = Account
+    local file = path.open(path, "r")
+    local account = Account
     account.username = file.readLine()
     account.password = file.readLine()
     account.securityLevel = file.readLine()
@@ -43,10 +43,22 @@ function ParseFile(path)
 end
 
 function GetAccount(username)
-    path = "INNSAccounts/"..username..".user"
+    local path = "INNSAccounts/"..username..".user"
     if not fs.exists(path) then return nil end
-    account = ParseFile(path)
+    local account = ParseFile(path)
     if account.password == password then return account end
+end
+
+function GetAccountFromGUID(guid)
+    local accounts = GetAccountList()
+    if accounts ~= nil then
+        for i=1, #accounts  do
+            local account = ParseFile("INNSAccounts/"..accounts[i])
+            if account ~= nil and account.guid == guid then
+                return account
+            end
+        end
+    end
 end
 
 function GetAccountList()

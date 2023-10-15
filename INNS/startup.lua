@@ -1,19 +1,24 @@
 --[V1.0] INNS startup script - InnoCorp Software 2023
 
-requiredDoorLevel = 1
-requiredAccessLevel = 3
+local requiredDoorLevel = 1
+local requiredAccessLevel = 3
 
-loginFieldOffset = 10
+local loginFieldOffset = 10
+
+local loggedIn = false
+
+local redstoneSide = "back"
+local doorOpenTime = 5
 
 --Helpers
 local function GetScreenCentre()
-    x, y = term.getSize() / 2
+    local x, y = term.getSize() / 2
     return x, y
 end
 
 local function GetScreenCentre(text)
-    x, y = GetScreenCentre()
-    x = x - (#text/2)
+    local x, y = GetScreenCentre()
+    local x = x - (#text/2)
     return x, y
 end
 
@@ -29,8 +34,30 @@ end
 
 --Loops
 local function CardLoop()
+    local cardReader = peripheral.find("drive")
+    local speaker = peripheral.find("speaker")
+    if cardReader == nil then return end
     while true do
         local event, side = os.pullEvent("disk")
+        if (not loggedIn and cardReader.isDiskPresent()) then
+            local path = cardReader.getMountPath().."INNS.guid"
+            if path.exists(path) then
+                local file = fs.open(path, "r")
+                local guid = file.readLine()
+                file.close()
+
+                local account = GetAccountFromGUID(guid)
+                if account ~= nil and account.securityLevel >= requiredDoorLevel then
+                    --BEEP
+                    redstone.setOutput(redstoneSide, true)
+                    sleep(doorOpenTime)
+                    redstone.setOutput(redstoneSide, false)
+                else
+                    --BEEP AGGRESSIVELY
+                end
+            end
+            cardReader.ejectDisk()
+        end
     end
 end
 
@@ -41,50 +68,51 @@ local function OSLoop()
         shell.run("CreateAccount.lua")
     end
     while true do
+        loggedIn = false
         term.clear()
         
-        title = "INNS Security Console Login"
-        titleX, titleY = GetScreenCentre(title)
+        local title = "InnoCorp INNS Security Console Login"
+        local titleX, titleY = GetScreenCentre(title)
         term.setCursorPos(titleX, titleY-1)
         term.write(title)
 
-        userField = "Username: "
-        userFieldX, userFieldY = GetScreenCentre(userField)
+        local userField = "Username: "
+        local userFieldX, userFieldY = GetScreenCentre(userField)
         term.setCursorPos(userFieldX-loginFieldOffset, userFieldY+1)
         term.write(userField)
 
-        userEntry = read()
+        local userEntry = read()
 
-        passField = "Password: "
-        passFieldX, passFieldY = GetScreenCentre(passField)
+        local passField = "Password: "
+        local passFieldX, passFieldY = GetScreenCentre(passField)
         term.setCursorPos(passFieldX-loginFieldOffset, passFieldY+2)
         term.write(passField)
 
-        passEntry = read("*")
+        local passEntry = read("*")
         
-        account = Account:GetAccount(userEntry)
+        local account = Account:GetAccount(userEntry)
         
         if account == nil or account.password ~= passEntry then
-            error = "Username or password was incorrect"
-            errorX, errorY = GetScreenCentre(error)
+            local error = "Username or password was incorrect"
+            local errorX, errorY = GetScreenCentre(error)
             term.setCursorPos(errorX, errorY+4)
             term.write(error)
             WaitForInputOrSecs(3)
         else
             if account.securityLevel < requiredAccessLevel then
-                error = "Account security level isn't high enough"
-                errorX, errorY = GetScreenCentre(error)
+                local error = "Account security level isn't high enough"
+                local errorX, errorY = GetScreenCentre(error)
                 term.setCursorPos(errorX, errorY+4)
                 term.write(error)
                 WaitForInputOrSecs(3)
             else
                 term.clear()
-                success = "Welcome "..account.username
-                successX, successY = GetScreenCentre(success)
+                local success = "Welcome "..account.username
+                local successX, successY = GetScreenCentre(success)
                 term.setCursorPos(successX, successY+4)
                 term.write(success)
                 WaitForInputOrSecs(3)
-
+                loggedIn = true
                 shell.run("shell")
             end
         end
