@@ -10,7 +10,7 @@ local loginFieldOffset = 10
 local loggedIn = false
 
 local redstoneSide = "back"
-local doorOpenTime = 5
+local doorOpenTime = 3
 
 local pullEvent = os.pullEvent
 
@@ -55,13 +55,14 @@ local function CardLoop()
                 if account ~= nil and account.securityLevel >= requiredDoorLevel then
                     --BEEP
                     redstone.setOutput(redstoneSide, true)
+                    cardReader.ejectDisk()
                     sleep(doorOpenTime)
                     redstone.setOutput(redstoneSide, false)
                 else
                     --BEEP AGGRESSIVELY
+                    cardReader.ejectDisk()
                 end
             end
-            cardReader.ejectDisk()
         end
     end
 end
