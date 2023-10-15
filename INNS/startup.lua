@@ -67,7 +67,6 @@ local function CardLoop()
 end
 
 local function OSLoop()
-    os.pullEvent = os.pullEventRaw
     term.clear()
     term.setCursorPos(1,1)
     if GetAccountList() == nil then
@@ -122,10 +121,12 @@ local function OSLoop()
                 term.setCursorPos(1,1)
                 os.pullEvent = pullEvent
                 shell.run("shell")
+                os.pullEvent = os.pullEventRaw
             end
         end
     end
 end
 
 require("/Accounts")
+os.pullEvent = os.pullEventRaw
 parallel.waitForAll(CardLoop, OSLoop) 
