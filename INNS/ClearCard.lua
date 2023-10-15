@@ -18,6 +18,9 @@ if fs.exists(path) then
     fs.delete(path)
 end
 
+path = "/"..drive.getMountPath().."/INNSAccounts/"
+if fs.exists(path) then fs.delete(path) end
+
 drive.setDisklabel()
 
 print("Card cleared")
