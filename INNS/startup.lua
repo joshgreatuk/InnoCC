@@ -40,7 +40,7 @@ local function CardLoop()
     while true do
         local event, side = os.pullEvent("disk")
         if (not loggedIn and cardReader.isDiskPresent()) then
-            local path = cardReader.getMountPath().."INNS.guid"
+            local path = "/"..cardReader.getMountPath().."/INNS.guid"
             if path.exists(path) then
                 local file = fs.open(path, "r")
                 local guid = file.readLine()
@@ -119,7 +119,7 @@ local function OSLoop()
     end
 end
 
-os.pullEvent = os.pullEventRaw
+os.pullEventRaw = os.pullEvent
 require("/Accounts")
 
 parallel.waitForAll(CardLoop, OSLoop)

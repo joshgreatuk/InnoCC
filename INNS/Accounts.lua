@@ -31,14 +31,13 @@ function Account:Delete()
 end
 
 function ParseFile(path)
-    local file = path.open(path, "r")
+    local file = fs.open(path, "r")
     local account = Account
     account.username = file.readLine()
     account.password = file.readLine()
     account.securityLevel = file.readLine()
     account.guid = file.readLine()
     file.close()
-
     return account
 end
 
@@ -46,7 +45,7 @@ function GetAccount(username)
     local path = "INNSAccounts/"..username..".user"
     if not fs.exists(path) then return nil end
     local account = ParseFile(path)
-    if account.password == password then return account end
+    return account 
 end
 
 function GetAccountFromGUID(guid)

@@ -13,7 +13,7 @@ end
 
 print("Clearing card. . .")
 
-local path = Drive:getMountPath(drive).."INNS.guid"
+local path = "/"..Drive:getMountPath(drive).."/INNS.guid"
 if fs.exists(path) then
     fs.delete(path)
 end

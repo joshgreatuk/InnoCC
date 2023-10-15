@@ -34,7 +34,7 @@ end
 
 print("\nWriting account to disk")
 
-local path = Drive:getMountPath(drive).."INNS.guid"
+local path = "/"..Drive:getMountPath(drive).."/INNS.guid"
 if fs.exists(path) then fs.delete(path) end
 
 local file = fs.open(path, "w")
