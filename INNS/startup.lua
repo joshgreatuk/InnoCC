@@ -36,6 +36,7 @@ end
 
 --Loops
 local function CardLoop()
+    if not doorControl then return end
     local cardReader = peripheral.find("drive")
     local speaker = peripheral.find("speaker")
     if cardReader == nil then return end
@@ -64,7 +65,6 @@ local function CardLoop()
 end
 
 local function OSLoop()
-    if not doorControl then return end
     term.clear()
     term.setCursorPos(1,1)
     if GetAccountList() == nil then
