@@ -1,7 +1,8 @@
 --[V1.0] INNS Account Exporter
 
+require("/Accounts")
 print("INNS Account Exporter V1.0 - InnoCorp Software")
-if not fs.Exists("INNSAccounts/") then print("No accounts to export") return end
+if not fs.exists("INNSAccounts/") then print("No accounts to export") return end
 local accounts = GetAccountList()
 if accounts == nil then print("No accounts to export") return end
 

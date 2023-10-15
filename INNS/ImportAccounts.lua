@@ -1,5 +1,6 @@
 --[V1.0] INNS Account Importer
 
+require("/Accounts")
 print("INNS Account Importer V1.0 - InnoCorp Software")
 
 local drive = peripheral.find("drive")
