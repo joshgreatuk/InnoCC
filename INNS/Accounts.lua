@@ -35,7 +35,7 @@ function ParseFile(path)
     local account = Account
     account.username = file.readLine()
     account.password = file.readLine()
-    account.securityLevel = file.readLine()
+    account.securityLevel = tonumber(file.readLine())
     account.guid = file.readLine()
     file.close()
     return account
