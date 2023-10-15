@@ -9,12 +9,12 @@ for i=1, #accounts do
     print("["..i.."] "..accounts[i])
 end
 
-print("Enter account: ")
+term.write("Enter account: ")
 local targetAccount = read()
 local account = GetAccount(targetAccount)
-if account == nil then print("Account doesnt exist") end
+if account == nil then print("\nAccount doesnt exist") end
 
-print("Are you sure youd like to write account '"..targetAccount.."'? (Y/N)")
+print("\nAre you sure youd like to write account '"..targetAccount.."'? (Y/N)")
 while true do
     local event, key = os.pullEvent("key_up")
     if (key == keys.y) then break

@@ -76,38 +76,38 @@ local function OSLoop()
         term.setCursorPos(titleX, titleY-1)
         term.write(title)
 
-        local userField = "Username: "
+        local userField = "\nUsername: "
         local userFieldX, userFieldY = GetScreenCentre(userField)
         term.setCursorPos(userFieldX-loginFieldOffset, userFieldY+1)
-        print(userField)
+        term.write(userField)
 
         local userEntry = read()
 
-        local passField = "Password: "
+        local passField = "\nPassword: "
         local passFieldX, passFieldY = GetScreenCentre(passField)
         term.setCursorPos(passFieldX-loginFieldOffset, passFieldY+2)
-        print(passField)
+        term.write(passField)
 
         local passEntry = read("*")
         
         local account = Account:GetAccount(userEntry)
         
         if account == nil or account.password ~= passEntry then
-            local error = "Username or password was incorrect"
+            local error = "\nUsername or password was incorrect"
             local errorX, errorY = GetScreenCentre(error)
             term.setCursorPos(errorX, errorY+4)
             term.write(error)
             WaitForInputOrSecs(3)
         else
             if account.securityLevel < requiredAccessLevel then
-                local error = "Account security level isn't high enough"
+                local error = "\nAccount security level isn't high enough"
                 local errorX, errorY = GetScreenCentre(error)
                 term.setCursorPos(errorX, errorY+4)
                 term.write(error)
                 WaitForInputOrSecs(3)
             else
                 term.clear()
-                local success = "Welcome "..account.username
+                local success = "\nWelcome "..account.username
                 local successX, successY = GetScreenCentre(success)
                 term.setCursorPos(successX, successY+4)
                 term.write(success)

@@ -9,12 +9,12 @@ for i=1, #accounts do
     print("["..i.."] "..accounts[i])
 end
 
-print("Enter the account to delete : ")
+term.write("Enter the account to delete : ")
 local toDelete = read()
 local account = GetAccount(toDelete)
-if account == nil then print("Account doesnt exist") return end
+if account == nil then print("\nAccount doesnt exist") return end
 
-print("Are you sure you want to delete account "..account.username.."? (Y/N)\n")
+print("\nAre you sure you want to delete account "..account.username.."? (Y/N)\n")
 while true do
     local event, key = os.pullEvent("key_up")
     if key == keys.y then break
