@@ -45,7 +45,7 @@ function GetAccount(username)
     local path = "INNSAccounts/"..username..".user"
     if not fs.exists(path) then return nil end
     local account = ParseFile(path)
-    return account 
+    return account
 end
 
 function GetAccountFromGUID(guid)

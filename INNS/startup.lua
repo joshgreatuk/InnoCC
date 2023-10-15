@@ -119,7 +119,13 @@ local function OSLoop()
     end
 end
 
-os.pullEventRaw = os.pullEvent
+local function StopTermination()
+    while true do
+        local event = os.pullEventRaw("terminate")
+        os.shutdown()
+    end
+end
+
 require("/Accounts")
 
-parallel.waitForAll(CardLoop, OSLoop)
+parallel.waitForAll(CardLoop, OSLoop, StopTermination)
