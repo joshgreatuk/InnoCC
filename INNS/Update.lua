@@ -1,8 +1,8 @@
 --[V1.0] INNS updater
 
 fileNames = {
-    "Accounts",
-    "startup"
+    "Accounts.lua",
+    "startup.lua"
 }
 sources = {
     "https://raw.githubusercontent.com/joshgreatuk/InnoCC/main/INNS/Accounts.lua",

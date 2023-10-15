@@ -10,7 +10,7 @@ function Account:New(username, password, securityLevel)
 
     self.guid = math.random(10000000, 99999999)
 
-    if ~fs.exists("INNSAccounts/") then fs.makeDir("INNSAccounts/") end
+    if not fs.exists("INNSAccounts/") then fs.makeDir("INNSAccounts/") end
     path = "INNSAccounts/"..username..".user"
 
     file = fs.open(path, "w")
@@ -44,7 +44,7 @@ end
 
 function GetAccount(username, password)
     path = "INNSAccounts/"..username..".user"
-    if ~fs.exists(path) then return nil end
+    if not fs.exists(path) then return nil end
     account = ParseFile(path)
     if account.password == password then return account end
 end

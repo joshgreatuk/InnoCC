@@ -87,6 +87,6 @@ local function OSLoop()
 end
 
 os.pullEvent = os.pullEventRaw
-require("Accounts")
+require("/Accounts")
 
 parallel.waitForAll(CardLoop, OSLoop)
