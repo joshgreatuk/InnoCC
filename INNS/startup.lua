@@ -37,7 +37,7 @@ end
 local function OSLoop()
     term.clear()
     term.setCursorPos(1,1)
-    if #GetAccountList() < 1 then
+    if GetAccountList() == nil then
         shell.run("CreateAccount.lua")
     end
     while true do

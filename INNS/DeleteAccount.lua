@@ -4,7 +4,7 @@ require("/Accounts")
 
 print("INNS Account Deleter V1.0")
 local accounts = GetAccountList()
-if #accounts == 0 then print("No accounts found") return end
+if accounts == nil then print("No accounts found") return end
 for i=1, #accounts do
     print("["..i.."] "..accounts[i])
 end
