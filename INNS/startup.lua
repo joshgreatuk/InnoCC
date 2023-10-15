@@ -23,10 +23,10 @@ local function GetScreenCentre(text)
 end
 
 local function WaitForInputOrSecs(secs)
-    os.setAlarm(secs)
+    os.startTimer(secs)
     while true do
         local event = os.pullEvent()
-        if event == "key" or event == "mouse_click" or event == "alarm" then
+        if event == "key" or event == "mouse_click" or event == "timer" then
             break
         end
     end
