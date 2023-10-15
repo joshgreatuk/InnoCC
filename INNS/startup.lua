@@ -12,8 +12,8 @@ local doorOpenTime = 5
 
 --Helpers
 local function GetPureScreenCentre()
-    local x, y = term.getSize() / 2
-    return x, y
+    local x, y = term.getSize()
+    return x/2, y/2
 end
 
 local function GetScreenCentre(text)
