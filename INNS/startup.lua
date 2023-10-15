@@ -65,30 +65,25 @@ local function OSLoop()
             term.setCursorPos(errorX, errorY+4)
             term.write(error)
             WaitForInputOrSecs(3)
-            goto continue
+        else
+            if account.securityLevel < requiredAccessLevel then
+                error = "Account security level isn't high enough"
+                errorX, errorY = GetScreenCentre(error)
+                term.setCursorPos(errorX, errorY+4)
+                term.write(error)
+                WaitForInputOrSecs(3)
+            else
+                term.clear()
+                success = "Welcome "..account.username
+                successX, successY = GetScreenCentre(success)
+                term.setCursorPos(successX, successY+4)
+                term.write(success)
+                WaitForInputOrSecs(3)
+
+                shell.run("shell")
+            end
         end
-
-        if account.securityLevel < requiredAccessLevel then
-            error = "Account security level isn't high enough"
-            errorX, errorY = GetScreenCentre(error)
-            term.setCursorPos(errorX, errorY+4)
-            term.write(error)
-            WaitForInputOrSecs(3)
-            goto continue
-        end
-
-        term.clear()
-        success = "Welcome "..account.username
-        successX, successY = GetScreenCentre(success)
-        term.setCursorPos(successX, successY+4)
-        term.write(success)
-        WaitForInputOrSecs(3)
-
-        shell.run("shell")
-
-        ::continue::
     end
-    
 end
 
 os.pullEvent = os.pullEventRaw
