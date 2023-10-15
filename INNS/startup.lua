@@ -119,9 +119,7 @@ local function OSLoop()
                 WaitForInputOrSecs(3)
                 term.clear()
                 term.setCursorPos(1,1)
-                os.pullEvent = pullEvent
                 shell.run("shell")
-                os.pullEvent = os.pullEventRaw
             end
         end
     end
