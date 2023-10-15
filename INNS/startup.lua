@@ -106,13 +106,14 @@ local function OSLoop()
                 term.write(error)
                 WaitForInputOrSecs(3)
             else
-                term.clear()
                 local success = "\nWelcome "..account.username
                 local successX, successY = GetScreenCentre(success)
                 term.setCursorPos(successX, successY+4)
                 term.write(success)
-                WaitForInputOrSecs(3)
                 loggedIn = true
+                WaitForInputOrSecs(3)
+                term.clear()
+                term.setCursorPos(1,1)
                 shell.run("shell")
             end
         end
