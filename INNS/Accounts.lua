@@ -48,3 +48,9 @@ function GetAccount(username, password)
     account = ParseFile(path)
     if account.password == password then return account end
 end
+
+function GetAccountList()
+    if not fs.exists("INNSAccounts/") then return nil end
+    
+    
+end

@@ -1,5 +1,12 @@
 --[V1.0] INNS updater
 
+print("Updating INNU\n")
+
+innuInstallerSource = "https://raw.githubusercontent.com/joshgreatuk/InnoCC/main/INNU/Install.lua"
+shell.run("wget", "run, innuInstallerSource")
+
+print("\nINNU Updated")
+
 fileNames = {
     "Accounts.lua",
     "startup.lua"
