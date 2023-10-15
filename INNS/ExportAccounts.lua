@@ -25,7 +25,7 @@ if fs.exists(path) then fs.delete(path) end
 fs.makeDir(path)
 
 for i=1, #accounts do
-    fs.move("/INNSAccounts/"..accounts[i], path..accounts[i])
+    fs.copy("/INNSAccounts/"..accounts[i], path..accounts[i])
 end
 
 drive.setDiskLabel("INNS Accounts Card: "..#accounts.." entries")
