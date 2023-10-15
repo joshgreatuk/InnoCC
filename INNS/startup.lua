@@ -30,7 +30,7 @@ end
 --Loops
 local function CardLoop()
     while true do
-        
+        local event, side = os.pullEvent("disk")
     end
 end
 
