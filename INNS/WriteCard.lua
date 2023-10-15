@@ -24,17 +24,17 @@ end
 local drive = peripheral.find("drive")
 if drive == nil then print("Drive not found") return end
 
-if not Drive:isDiskPresent(drive) then 
+if not drive.isDiskPresent() then 
     print("Awaiting card")
     while true do 
         local event, side = os.pullEvent("disk")
-        if Drive:hasData(drive) then break end
+        if drive.hasData() then break end
     end
 end
 
 print("\nWriting account to disk")
 
-local path = "/"..Drive:getMountPath(drive).."/INNS.guid"
+local path = "/"..drive.getMountPath().."/INNS.guid"
 if fs.exists(path) then fs.delete(path) end
 
 local file = fs.open(path, "w")

@@ -3,17 +3,17 @@
 print("INNS Card Clearer V1.0 - InnoCorp Software")
 local drive = peripheral.find("drive")
 if drive == nil then print("Drive not found") return end
-if not Drive:isDiskPresent(drive) then 
+if not drive.isDiskPresent() then 
     print("Awaiting card")
     while true do 
         event, side = os.pullEvent("disk")
-        if Drive:hasData(drive) then break end
+        if drive.hasData() then break end
     end
 end
 
 print("Clearing card. . .")
 
-local path = "/"..Drive:getMountPath(drive).."/INNS.guid"
+local path = "/"..drive.getMountPath().."/INNS.guid"
 if fs.exists(path) then
     fs.delete(path)
 end

@@ -10,17 +10,17 @@ if accounts == nil then print("No accounts to export") return end
 local drive = peripheral.find("drive")
 if drive == nil then print("Cant find drive") return end
 
-if not Drive:isDiskPresent(drive) then
+if not drive.isDiskPresent() then
     print("Awaiting card")
     while true do 
         local event, side = os.pullEvent("disk")
-        if Drive:hasData(drive) then break end
+        if drive.hasData() then break end
     end
 end 
 
 print("\nExporting accounts")
 
-local path = "/"..Drive:getMountPath(drive).."/INNSAccounts/"
+local path = "/"..drive.getMountPath().."/INNSAccounts/"
 if fs.exists(path) then fs.delete(path) end
 fs.makeDir(path)
 
