@@ -28,6 +28,6 @@ for i=1, #accounts do
     fs.copy("/INNSAccounts/"..accounts[i], path..accounts[i])
 end
 
-drive.setDiskLabel("INNS Accounts Card: "..#accounts.." entries")
+drive.setDiskLabel("INNS Accounts Card: "..#accounts.." Entries")
 
 print("Exported "..#accounts.." accounts")
