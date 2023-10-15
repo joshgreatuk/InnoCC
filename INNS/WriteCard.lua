@@ -41,6 +41,6 @@ local file = fs.open(path, "w")
 file.writeLine(account.guid)
 file.close()
 
-drive.setDiskLabel("INNS GUID Card: "..account.username.." Level "..account.securityLevel)
+drive.setDiskLabel("INNS GUID Level "..account.securityLevel.." Card: "..account.username)
 
 print("Account written")
