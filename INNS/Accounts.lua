@@ -42,7 +42,7 @@ function ParseFile(path)
     return account
 end
 
-function GetAccount(username, password)
+function GetAccount(username)
     path = "INNSAccounts/"..username..".user"
     if not fs.exists(path) then return nil end
     account = ParseFile(path)
@@ -51,6 +51,5 @@ end
 
 function GetAccountList()
     if not fs.exists("INNSAccounts/") then return nil end
-    
-    
+    return fs.list("INNSAccounts/")
 end

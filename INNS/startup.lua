@@ -35,6 +35,11 @@ local function CardLoop()
 end
 
 local function OSLoop()
+    term.clear()
+    term.setCursorPos(1,1)
+    if #GetAccountList() < 1 then
+        shell.run("CreateAccount.lua")
+    end
     while true do
         term.clear()
         
@@ -57,9 +62,9 @@ local function OSLoop()
 
         passEntry = read("*")
         
-        account = Account:GetAccount(userEntry, passEntry)
+        account = Account:GetAccount(userEntry)
         
-        if account == nil then
+        if account == nil or account.password ~= passEntry then
             error = "Username or password was incorrect"
             errorX, errorY = GetScreenCentre(error)
             term.setCursorPos(errorX, errorY+4)
