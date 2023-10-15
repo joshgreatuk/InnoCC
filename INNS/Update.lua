@@ -13,7 +13,9 @@ fileNames = {
     "CreateAccount.lua",
     "DeleteAccount.lua",
     "WriteCard.lua",
-    "ClearCard.lua"
+    "ClearCard.lua",
+    "ExportAccounts.lua",
+    "ImportAccounts.lua"
 }
 sources = {
     "https://raw.githubusercontent.com/joshgreatuk/InnoCC/main/INNS/Accounts.lua",
@@ -21,7 +23,9 @@ sources = {
     "https://raw.githubusercontent.com/joshgreatuk/InnoCC/main/INNS/CreateAccount.lua",
     "https://raw.githubusercontent.com/joshgreatuk/InnoCC/main/INNS/DeleteAccount.lua",
     "https://raw.githubusercontent.com/joshgreatuk/InnoCC/main/INNS/WriteCard.lua",
-    "https://raw.githubusercontent.com/joshgreatuk/InnoCC/main/INNS/ClearCard.lua"
+    "https://raw.githubusercontent.com/joshgreatuk/InnoCC/main/INNS/ClearCard.lua",
+    "https://raw.githubusercontent.com/joshgreatuk/InnoCC/main/INNS/ExportAccounts.lua",
+    "https://raw.githubusercontent.com/joshgreatuk/InnoCC/main/INNS/ImportAccounts.lua"
 }
 
 print("Updating INNS Package\n")
