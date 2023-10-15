@@ -79,14 +79,14 @@ local function OSLoop()
         local userField = "Username: "
         local userFieldX, userFieldY = GetScreenCentre(userField)
         term.setCursorPos(userFieldX-loginFieldOffset, userFieldY+1)
-        term.write(userField)
+        print(userField)
 
         local userEntry = read()
 
         local passField = "Password: "
         local passFieldX, passFieldY = GetScreenCentre(passField)
         term.setCursorPos(passFieldX-loginFieldOffset, passFieldY+2)
-        term.write(passField)
+        print(passField)
 
         local passEntry = read("*")
         
