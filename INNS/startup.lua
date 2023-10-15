@@ -11,13 +11,13 @@ local redstoneSide = "back"
 local doorOpenTime = 5
 
 --Helpers
-local function GetScreenCentre()
+local function GetPureScreenCentre()
     local x, y = term.getSize() / 2
     return x, y
 end
 
 local function GetScreenCentre(text)
-    local x, y = GetScreenCentre()
+    local x, y = GetPureScreenCentre()
     local x = x - (#text/2)
     return x, y
 end
