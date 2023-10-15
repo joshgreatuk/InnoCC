@@ -90,7 +90,7 @@ local function OSLoop()
 
         local passEntry = read("*")
         
-        local account = Account:GetAccount(userEntry)
+        local account = GetAccount(userEntry)
         
         if account == nil or account.password ~= passEntry then
             local error = "\nUsername or password was incorrect"
