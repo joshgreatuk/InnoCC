@@ -122,8 +122,10 @@ end
 
 local function StopTermination()
     while true do
-        local event = os.pullEventRaw("terminate")
-        os.shutdown()
+        local event = os.pullEventRaw()
+        if event == "terminate" then
+            os.shutdown()
+        end
     end
 end
 
