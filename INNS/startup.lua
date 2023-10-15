@@ -41,7 +41,7 @@ local function CardLoop()
         local event, side = os.pullEvent("disk")
         if (not loggedIn and cardReader.isDiskPresent()) then
             local path = "/"..cardReader.getMountPath().."/INNS.guid"
-            if path.exists(path) then
+            if fs.exists(path) then
                 local file = fs.open(path, "r")
                 local guid = file.readLine()
                 file.close()
