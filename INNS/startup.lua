@@ -44,7 +44,7 @@ local function CardLoop()
     if cardReader == nil then return end
     while true do
         local event, side = os.pullEvent("disk")
-        if (not loggedIn and cardReader.isDiskPresent()) then
+        if (not loggedIn and cardReader.isDiskPresent() and cardReader.hasData()) then
             local path = "/"..cardReader.getMountPath().."/INNS.guid"
             if fs.exists(path) then
                 local file = fs.open(path, "r")
